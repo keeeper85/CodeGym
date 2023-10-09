@@ -31,12 +31,41 @@ public class Solution {
         print(ip);          //11000000 10101000 00000001 00000010
         print(mask);        //11111111 11111111 11111110 00000000
         print(netAddress);  //11000000 10101000 00000000 00000000
+
+//        System.out.println((byte) 127 );
+//        System.out.println((byte) 128 );
+//
+//// second flip
+//        System.out.println((byte) 255 );
+//        System.out.println((byte) 256 );
+//        System.out.println((byte) 257 );
     }
 
     public static byte[] getNetAddress(byte[] ip, byte[] mask) {
-        return new byte[4];
+
+        byte[] result = new byte[4];
+
+        for (int i = 0; i < result.length; i++){
+            result[i] = (byte) (ip[i] & mask[i]);
+            //System.out.println(result[i]);
+        }
+
+        return result;
     }
 
     public static void print(byte[] bytes) {
+        //int test = Integer.parseInt(Integer.toBinaryString(bytes[2]));
+
+//        int zero = bytes[0] > 0 ? bytes[0] : (bytes[0] + 256);
+//        int one = bytes[1] > 0 ? bytes[1] : (bytes[1] + 256);
+//        int two = bytes[2] > 0 ? bytes[2] : (bytes[2] + 256);
+//        int three = bytes[3];
+        //System.out.println(zero + " " + one + " " + two + " " + three);
+        //System.out.println(Integer.toBinaryString(zero) + " " + Integer.toBinaryString(one) + " " + Integer.toBinaryString(two) + " " + Integer.toBinaryString(three));
+        System.out.printf("%08d ",Integer.parseInt(Integer.toBinaryString(Byte.toUnsignedInt(bytes[0]))));
+        System.out.printf("%08d ",Integer.parseInt(Integer.toBinaryString(Byte.toUnsignedInt(bytes[1]))));
+        System.out.printf("%08d ",Integer.parseInt(Integer.toBinaryString(Byte.toUnsignedInt(bytes[2]))));
+        System.out.printf("%08d ",Integer.parseInt(Integer.toBinaryString(Byte.toUnsignedInt(bytes[3]))));
+        System.out.println();
     }
 }
