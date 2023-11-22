@@ -11,6 +11,13 @@ import java.rmi.server.UnicastRemoteObject;
 /* 
 Toward an RMI server
 
+Implement the run() method on CLIENT_THREAD. It will simulate a client that will connect to a server.
+1) Get the service named UNIC_BINDING_NAME from the registry.
+2) Call the returned service's method. Pass any non-empty argument.
+3) Display the result of calling the method.
+4) Handle specific exceptions.
+The main() method is not tested.
+
 */
 
 public class Solution {
